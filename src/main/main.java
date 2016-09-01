@@ -50,16 +50,25 @@ public class main {
     private static void generersolutionHumain() { // Le joueur propose une combinaison
 
         int couleur;
+        int[] coulTest = {9, 9, 9, 9};
         for (i = 0; i <= tailleTableau; i++) // Pour chaque emplacement de tableau
         {
             System.out.println("Veuillez rentrer une couleur valide");
             couleur = Integer.parseInt(String.valueOf(sc.nextInt()));
-            while (couleur < 0 && couleur > COULEURS.length) {
+            while (couleur < 0 && couleur > COULEURS.length - 1) {
                 System.out.println("Veuillez rentrer une couleur valide");
                 couleur = Integer.parseInt(String.valueOf(sc.nextInt()));
+                coulTest[i] = couleur;
+                for (int j = 0; j < coulTest.length; i++) {
+                    if (couleur != coulTest[i]) {
+                        tSolution[i] = couleur;
+                    } else {
+                        coulTest[i] = 9;
+                        couleur = 9;
+                    }
+                }
 
             }
-
 
 
         }
