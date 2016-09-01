@@ -7,12 +7,13 @@ import java.util.Scanner;
  */
 public class main {
 
-    static String[] couleurs = {"Rouge", "Jaune", "Vert", "Bleu", "Orange", "Blanc", "Violet", "Fuchsia"};
+    final static String[] COULEURS = {"Rouge", "Jaune", "Vert", "Bleu", "Orange", "Blanc", "Violet", "Fuchsia"};
     static int[] tProp;
     static int[] tSolution;
     static int i = 0;
     static int j = 0;
     static int essais = 0;
+    static int tailleTableau = 4;
     static int choix = 0;
     static Scanner sc = new Scanner(System.in);
     static Boolean[] placeCorrecte;
@@ -20,10 +21,12 @@ public class main {
 
 
     public static void main(String[] args) { // Menu principal
+
         affichercouleurs(); // on affiche les couleurs et leur code
         choixmode(); // choix du mode de jeu
 
     }
+
 
     private static void choixmode() {
         System.out.println("MasterMind. \n Mode 1 : Le système génère une combinaison à trouver. \n" +
@@ -47,11 +50,17 @@ public class main {
     private static void generersolutionHumain() { // Le joueur propose une combinaison
 
         int couleur;
-        for (i = 0; i < couleurs.length;i++)
+        for (i = 0; i <= tailleTableau; i++) // Pour chaque emplacement de tableau
         {
-
             System.out.println("Veuillez rentrer une couleur valide");
             couleur = Integer.parseInt(String.valueOf(sc.nextInt()));
+            while (couleur < 0 && couleur > COULEURS.length) {
+                System.out.println("Veuillez rentrer une couleur valide");
+                couleur = Integer.parseInt(String.valueOf(sc.nextInt()));
+
+            }
+
+
 
         }
     }
@@ -62,8 +71,8 @@ public class main {
 
     private static void affichercouleurs() { // Permet l'affichage des codes et couleurs
         int k = 0;
-        for ( String couleur:couleurs) {
-            System.out.println(k + " : " +couleur);
+        for (String couleur : COULEURS) {
+            System.out.println(k + " : " + couleur);
             k++;
         }
 
@@ -80,3 +89,4 @@ public class main {
     }
 
 }
+
