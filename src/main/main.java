@@ -10,6 +10,7 @@ public class main {
     final static String[] COULEURS = {"Rouge", "Jaune", "Vert", "Bleu", "Orange", "Blanc", "Violet", "Fuchsia"};
     static int[] tProp = new int[4];
     static int[] tSolution = new int[4];
+    static int[] tTemp = new int[4];
     static int i = 0;
     static int j = 0;
     static int essais = 0;
@@ -104,7 +105,15 @@ public class main {
     private static void resoudreSolution() {// la machine tente de résoudre une combinaison
         //TODO algo résolution
         while ((placeCorrecte != new boolean[]{true, true, true, true}) && (couleurCorrecte != new boolean[]{true, true, true, true})) {
+            for (int i : tProp) {
+                if (tProp[i] == tSolution[i]) {
+                    placeCorrecte[i] = true;
+                    couleurCorrecte[i] = true;
+                } else {
 
+                }
+
+            }
 
         }
 
