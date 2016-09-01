@@ -16,13 +16,13 @@ public class main {
     static int tailleTableau = 4;
     static int choix = 0;
     static Scanner sc = new Scanner(System.in);
-    static Boolean[] placeCorrecte = new Boolean[4];
-    static Boolean[] couleurCorrecte = new Boolean[4];
+    static boolean[] placeCorrecte = new boolean[4];
+    static boolean[] couleurCorrecte = new boolean[4];
 
 
     public static void main(String[] args) { // Menu principal
 
-       // afficherCouleurs(); // on affiche les couleurs et leur code
+        // afficherCouleurs(); // on affiche les couleurs et leur code
         choixMode(); // choix du mode de jeu
 
     }
@@ -40,7 +40,8 @@ public class main {
                 reponseHumain();
             } else if (choix == 2) { // Le joueur génère une solution et la machine la devine
                 afficherCouleurs();
-                genererSolutionHumain();
+                // genererSolutionHumain();
+                debug();
                 resoudreSolution();
             } else {
                 System.out.println("Veuillez entrer un nombre correct.");
@@ -49,8 +50,15 @@ public class main {
 
     }
 
-    private static void genererSolutionHumain() { // Le joueur propose une combinaison
+    private static void debug() {  // DEBUG
+        for (int l : tSolution) {
 
+            tSolution[l] = Integer.parseInt(String.valueOf(sc.nextInt()));
+        }
+    }
+
+    private static void genererSolutionHumain() { // Le joueur propose une combinaison
+        //TODO le machin pour gérer une seule couleur
         int couleur;
         int[] coulTest = new int[4];
         for (i = 0; i < tailleTableau; i++) // Pour chaque emplacement de tableau
@@ -60,9 +68,9 @@ public class main {
             while (couleur < 0 && couleur > COULEURS.length - 1) {
                 System.out.println("Veuillez rentrer une couleur valide (entre 0 et 7)");
                 couleur = Integer.parseInt(String.valueOf(sc.nextInt()));
-                coulTest[i] = couleur;
                 for (int j = 0; j < coulTest.length; i++) {
                     if (couleur != coulTest[i]) {
+                        coulTest[i] = couleur;
                         tSolution[i] = couleur;
                     } else {
 
@@ -70,14 +78,14 @@ public class main {
                 }
 
             }
-            for (int i:coulTest) {
-                System.out.println(coulTest[i]);
+            for (int l : coulTest) {
+                System.out.println(coulTest[l]);
             }
         }
     }
 
     private static void reponseHumain() { // Le joueur tente de trouver la combinaison générée par la machine
-        //TODO
+        //TODO gérer réponses user
     }
 
     private static void afficherCouleurs() { // Permet l'affichage des codes et couleurs
@@ -90,14 +98,18 @@ public class main {
     }
 
     private static void resoudreSolution() {// la machine tente de résoudre une combinaison
-        //TODO
+        //TODO algo résolution
+        while ((placeCorrecte != new boolean[]{true, true, true, true}) && (couleurCorrecte != new boolean[]{true, true, true, true})) {
+
+        }
+
     }
 
 
     private static void genererSolution() { // la machine génère une combinaison
 
         int rep1, rep2, rep3, rep4;
-        //TODO
+        //TODO générer solution random
 
     }
 
