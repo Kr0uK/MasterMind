@@ -51,9 +51,13 @@ public class main {
     }
 
     private static void debug() {  // DEBUG
-        for (int l : tSolution) {
+        for (int k : tSolution) {
 
-            tSolution[l] = Integer.parseInt(String.valueOf(sc.nextInt()));
+            tSolution[k] = Integer.parseInt(String.valueOf(sc.nextInt()));
+            System.out.println(tSolution[k]);
+        }
+        for (int i : tSolution) {
+            System.out.println(tSolution[i]);
         }
     }
 
@@ -100,6 +104,7 @@ public class main {
     private static void resoudreSolution() {// la machine tente de résoudre une combinaison
         //TODO algo résolution
         while ((placeCorrecte != new boolean[]{true, true, true, true}) && (couleurCorrecte != new boolean[]{true, true, true, true})) {
+
 
         }
 
