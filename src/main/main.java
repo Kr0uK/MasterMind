@@ -1,55 +1,38 @@
 package main;
 
+import java.util.Random;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by user on 01/09/2016.
  */
 public class main {
-
-    static int[][] tMasterMind = {{2, 1, 1, 1}, {2, 1, 1, 1}};//premier dimension proposition et deuxieme solution
-    static int cptReponseOk = 1000;
-    static int cptBienPlacer = 0;
-    static int cptMalPlacer = 0;
-
     public static void main(String[] args) {
-        System.out.println(verification());
-    }
 
 
-    public static String verification() {
-        String retour;
-        verifBienPlacer();
-        verifMalPlacer();
-        retour = "Solution bien placé : " + cptBienPlacer + "\nSolution mal placé : " + cptMalPlacer;
-        return retour;
-    }
+        Pattern regex_num = Pattern.compile("^([\\d]){5}$");
+        Pattern regex_tel = Pattern.compile("^(0)([1-59])(\\d{8})$");
+        Pattern regex_mobile = Pattern.compile("^(0)([6-7])(\\d{8})$");
+        Matcher m;
 
-    public static void verifBienPlacer() {
-        for (int i = 0; i < tMasterMind[0].length; i++) {
-            if (tMasterMind[0][i] == tMasterMind[1][i]) {
-                tMasterMind[0][i] = reponseOk();
-                tMasterMind[1][i] = reponseOk();
-                cptBienPlacer++;
-            }
+        double test = 0;
+        long test2 = 10000000000;
+        Random rnd = new Random();
+
+        while (1 > 0){
+            test = rnd.nextLong(10000000000);
+            m = regex_tel.matcher(""+test);
+            if (m.find()) {
+                System.out.println("ok " + test);
         }
     }
 
-    public static void verifMalPlacer() {
-        for (int i = 0; i < tMasterMind[0].length; i++) {
-            for (int j = 0; j < tMasterMind[1].length; j++) {
-                if (tMasterMind[0][i] == tMasterMind[1][j]) {
-                    tMasterMind[0][i] = reponseOk();
-                    tMasterMind[1][j] = reponseOk();
-                    cptMalPlacer++;
-                }
-            }
-        }
-    }
 
-    public static int reponseOk() {
-        cptReponseOk++;
-        return cptReponseOk;
-    }
-}
+
+
+
+}}
+
 
